@@ -1,0 +1,1778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="areaID" />
+          </Key>
+          <Property Name="areaID" Type="int" Nullable="false" />
+          <Property Name="areaHeb" Type="nvarchar" MaxLength="255" />
+          <Property Name="areaEng" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="authorID" />
+          </Key>
+          <Property Name="authorID" Type="int" Nullable="false" />
+          <Property Name="nameHeb" Type="nvarchar" MaxLength="255" />
+          <Property Name="nameEng" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AuthorsPublications">
+          <Key>
+            <PropertyRef Name="authorPublicationID" />
+            <PropertyRef Name="authorID" />
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="authorPublicationID" Type="int" Nullable="false" />
+          <Property Name="authorID" Type="int" Nullable="false" />
+          <Property Name="publicationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Excavations">
+          <Key>
+            <PropertyRef Name="excavationID" />
+          </Key>
+          <Property Name="excavationID" Type="int" Nullable="false" />
+          <Property Name="siteID" Type="int" />
+          <Property Name="excavationDate" Type="datetime" />
+          <Property Name="areaID" Type="int" />
+          <Property Name="excavationSize" Type="nvarchar" MaxLength="255" />
+          <Property Name="comment" Type="nvarchar(max)" />
+          <Property Name="bibliography" Type="nvarchar(max)" />
+          <Property Name="excavationHeb" Type="nvarchar" MaxLength="255" />
+          <Property Name="excavationEng" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ExcavationsPublications">
+          <Key>
+            <PropertyRef Name="excavationPublicationID" />
+            <PropertyRef Name="excavationID" />
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="excavationPublicationID" Type="int" Nullable="false" />
+          <Property Name="excavationID" Type="int" Nullable="false" />
+          <Property Name="publicationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Findings">
+          <Key>
+            <PropertyRef Name="findingID" />
+          </Key>
+          <Property Name="findingID" Type="int" Nullable="false" />
+          <Property Name="descriptionEng" Type="nvarchar" MaxLength="4000" />
+          <Property Name="descriptionHeb" Type="nvarchar" MaxLength="4000" />
+          <Property Name="findingTypeID" Type="int" Nullable="false" />
+          <Property Name="siteTypeID" Type="int" Nullable="false" />
+          <Property Name="siteNatureID" Type="int" Nullable="false" />
+          <Property Name="findingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="excavationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FindingsPeriods">
+          <Key>
+            <PropertyRef Name="findingPeriodID" />
+            <PropertyRef Name="findingID" />
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="findingPeriodID" Type="int" Nullable="false" />
+          <Property Name="findingID" Type="int" Nullable="false" />
+          <Property Name="periodID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FindingType">
+          <Key>
+            <PropertyRef Name="findingTypeID" />
+          </Key>
+          <Property Name="findingTypeID" Type="int" Nullable="false" />
+          <Property Name="findingTypeDescriptionHeb" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="findingTypeDescriptionEng" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="languageID" />
+          </Key>
+          <Property Name="languageID" Type="int" Nullable="false" />
+          <Property Name="languageHeb" Type="nvarchar" MaxLength="50" />
+          <Property Name="languageEng" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LocationAPIResult">
+          <Key>
+            <PropertyRef Name="siteID" />
+          </Key>
+          <Property Name="siteID" Type="int" Nullable="false" />
+          <Property Name="coordinateSource" Type="nvarchar" MaxLength="250" />
+          <Property Name="locationiqLon" Type="float" />
+          <Property Name="locationiqLat" Type="float" />
+          <Property Name="googleLat" Type="float" />
+          <Property Name="googleLon" Type="float" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="periodID" Type="int" Nullable="false" />
+          <Property Name="nameHeb" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="nameEng" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="fromYear" Type="int" />
+          <Property Name="upToYear" Type="int" />
+          <Property Name="periodType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Periodicals">
+          <Key>
+            <PropertyRef Name="periodicalID" />
+          </Key>
+          <Property Name="periodicalID" Type="int" Nullable="false" />
+          <Property Name="periodicalNameHeb" Type="nvarchar" MaxLength="100" />
+          <Property Name="periodicalNameEng" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Publications">
+          <Key>
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="publicationID" Type="int" Nullable="false" />
+          <Property Name="articleTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="year" Type="nvarchar" MaxLength="50" />
+          <Property Name="periodicalID" Type="int" />
+          <Property Name="bibliography" Type="ntext" />
+          <Property Name="URL" Type="ntext" />
+          <Property Name="FDFName" Type="nvarchar(max)" />
+          <Property Name="publicationTypeID" Type="int" />
+          <Property Name="abstractEng" Type="ntext" />
+          <Property Name="abstractHeb" Type="ntext" />
+        </EntityType>
+        <EntityType Name="PublicationType">
+          <Key>
+            <PropertyRef Name="publicationTypeID" />
+          </Key>
+          <Property Name="publicationTypeID" Type="int" Nullable="false" />
+          <Property Name="publicationTypeHeb" Type="nvarchar" MaxLength="100" />
+          <Property Name="publicationTypeEng" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RecordSource">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Name="recordID" Type="int" Nullable="false" />
+          <Property Name="sourceID" Type="int" Nullable="false" />
+          <Property Name="recordSourceTable" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="datails" Type="text" />
+        </EntityType>
+        <EntityType Name="Researchers">
+          <Key>
+            <PropertyRef Name="researcherID" />
+          </Key>
+          <Property Name="researcherID" Type="int" Nullable="false" />
+          <Property Name="researcherNameHeb" Type="nvarchar" MaxLength="255" />
+          <Property Name="researcherNameEng" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ResearchersExcavations">
+          <Key>
+            <PropertyRef Name="researcherExcavationID" />
+            <PropertyRef Name="researcherID" />
+            <PropertyRef Name="excavationID" />
+          </Key>
+          <Property Name="researcherExcavationID" Type="int" Nullable="false" />
+          <Property Name="researcherID" Type="int" Nullable="false" />
+          <Property Name="excavationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteNature">
+          <Key>
+            <PropertyRef Name="findingSiteNatureID" />
+          </Key>
+          <Property Name="findingSiteNatureID" Type="int" Nullable="false" />
+          <Property Name="findingSiteNatureHeb" Type="nvarchar" MaxLength="50" />
+          <Property Name="findingSiteNatureEng" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sites">
+          <Key>
+            <PropertyRef Name="siteID" />
+          </Key>
+          <Property Name="siteID" Type="int" Nullable="false" />
+          <Property Name="LabelX" Type="float" />
+          <Property Name="LabelY" Type="float" />
+          <Property Name="NIG_Info" Type="nvarchar(max)" />
+          <Property Name="WGS84_Info" Type="geography" />
+          <Property Name="siteSize" Type="nvarchar" MaxLength="50" />
+          <Property Name="oldSiteID" Type="int" />
+        </EntityType>
+        <EntityType Name="SitesName">
+          <Key>
+            <PropertyRef Name="siteNameID" />
+          </Key>
+          <Property Name="siteNameID" Type="int" Nullable="false" />
+          <Property Name="txtName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="languageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SitesPeriods">
+          <Key>
+            <PropertyRef Name="sitesPeriodsID" />
+            <PropertyRef Name="siteID" />
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="sitesPeriodsID" Type="int" Nullable="false" />
+          <Property Name="siteID" Type="int" Nullable="false" />
+          <Property Name="periodID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SitesSiteNames">
+          <Key>
+            <PropertyRef Name="sitesSiteNamesID" />
+            <PropertyRef Name="siteID" />
+            <PropertyRef Name="siteNameID" />
+          </Key>
+          <Property Name="sitesSiteNamesID" Type="int" Nullable="false" />
+          <Property Name="siteID" Type="int" Nullable="false" />
+          <Property Name="siteNameID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteType">
+          <Key>
+            <PropertyRef Name="findingSiteTypeID" />
+          </Key>
+          <Property Name="findingSiteTypeID" Type="int" Nullable="false" />
+          <Property Name="findingSiteTypeEng" Type="nvarchar" MaxLength="255" />
+          <Property Name="findingSiteTypeHeb" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SourceDBConnection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="sourceID" Type="int" />
+          <Property Name="dbID" Type="int" />
+          <Property Name="tableID" Type="int" />
+        </EntityType>
+        <EntityType Name="TableCode">
+          <Key>
+            <PropertyRef Name="tableID" />
+          </Key>
+          <Property Name="tableID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tableName" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="temp_names">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FAM" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_AuthorsPublications_Authors">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="AuthorsPublications" Type="Self.AuthorsPublications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="authorID" />
+            </Principal>
+            <Dependent Role="AuthorsPublications">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorsPublications_Publications">
+          <End Role="Publications" Type="Self.Publications" Multiplicity="1" />
+          <End Role="AuthorsPublications" Type="Self.AuthorsPublications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publications">
+              <PropertyRef Name="publicationID" />
+            </Principal>
+            <Dependent Role="AuthorsPublications">
+              <PropertyRef Name="publicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Excavations_Areas">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+          <End Role="Excavations" Type="Self.Excavations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="areaID" />
+            </Principal>
+            <Dependent Role="Excavations">
+              <PropertyRef Name="areaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Excavations_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="0..1" />
+          <End Role="Excavations" Type="Self.Excavations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="Excavations">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExcavationsPublications_Excavations">
+          <End Role="Excavations" Type="Self.Excavations" Multiplicity="1" />
+          <End Role="ExcavationsPublications" Type="Self.ExcavationsPublications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="ExcavationsPublications">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExcavationsPublications_Publications">
+          <End Role="Publications" Type="Self.Publications" Multiplicity="1" />
+          <End Role="ExcavationsPublications" Type="Self.ExcavationsPublications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publications">
+              <PropertyRef Name="publicationID" />
+            </Principal>
+            <Dependent Role="ExcavationsPublications">
+              <PropertyRef Name="publicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_Excavations">
+          <End Role="Excavations" Type="Self.Excavations" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Findings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingSiteNature">
+          <End Role="SiteNature" Type="Self.SiteNature" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Findings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteNature">
+              <PropertyRef Name="findingSiteNatureID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="siteNatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingSiteType">
+          <End Role="SiteType" Type="Self.SiteType" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Findings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteType">
+              <PropertyRef Name="findingSiteTypeID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="siteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingType">
+          <End Role="FindingType" Type="Self.FindingType" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Findings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FindingType">
+              <PropertyRef Name="findingTypeID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="findingTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindingsPeriods_Findings">
+          <End Role="Findings" Type="Self.Findings" Multiplicity="1" />
+          <End Role="FindingsPeriods" Type="Self.FindingsPeriods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Findings">
+              <PropertyRef Name="findingID" />
+            </Principal>
+            <Dependent Role="FindingsPeriods">
+              <PropertyRef Name="findingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindingsPeriods_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="FindingsPeriods" Type="Self.FindingsPeriods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="periodID" />
+            </Principal>
+            <Dependent Role="FindingsPeriods">
+              <PropertyRef Name="periodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationAPIResult_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="LocationAPIResult" Type="Self.LocationAPIResult" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="LocationAPIResult">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publications_Periodicals">
+          <End Role="Periodicals" Type="Self.Periodicals" Multiplicity="0..1" />
+          <End Role="Publications" Type="Self.Publications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodicals">
+              <PropertyRef Name="periodicalID" />
+            </Principal>
+            <Dependent Role="Publications">
+              <PropertyRef Name="periodicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publications_PublicationType">
+          <End Role="PublicationType" Type="Self.PublicationType" Multiplicity="0..1" />
+          <End Role="Publications" Type="Self.Publications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublicationType">
+              <PropertyRef Name="publicationTypeID" />
+            </Principal>
+            <Dependent Role="Publications">
+              <PropertyRef Name="publicationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResearchersExcavations_Excavations">
+          <End Role="Excavations" Type="Self.Excavations" Multiplicity="1" />
+          <End Role="ResearchersExcavations" Type="Self.ResearchersExcavations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="ResearchersExcavations">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResearchesExcavations_Researchers">
+          <End Role="Researchers" Type="Self.Researchers" Multiplicity="1" />
+          <End Role="ResearchersExcavations" Type="Self.ResearchersExcavations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Researchers">
+              <PropertyRef Name="researcherID" />
+            </Principal>
+            <Dependent Role="ResearchersExcavations">
+              <PropertyRef Name="researcherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesName_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="SitesName" Type="Self.SitesName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="languageID" />
+            </Principal>
+            <Dependent Role="SitesName">
+              <PropertyRef Name="languageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesPeriods_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="SitesPeriods" Type="Self.SitesPeriods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="periodID" />
+            </Principal>
+            <Dependent Role="SitesPeriods">
+              <PropertyRef Name="periodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesPeriods_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="SitesPeriods" Type="Self.SitesPeriods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="SitesPeriods">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesSiteNames_Sites">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="SitesSiteNames" Type="Self.SitesSiteNames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="SitesSiteNames">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesSiteNames_SitesName">
+          <End Role="SitesName" Type="Self.SitesName" Multiplicity="1" />
+          <End Role="SitesSiteNames" Type="Self.SitesSiteNames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SitesName">
+              <PropertyRef Name="siteNameID" />
+            </Principal>
+            <Dependent Role="SitesSiteNames">
+              <PropertyRef Name="siteNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceDBConnection_RecordSource1">
+          <End Role="RecordSource" Type="Self.RecordSource" Multiplicity="0..1" />
+          <End Role="SourceDBConnection" Type="Self.SourceDBConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecordSource">
+              <PropertyRef Name="recordID" />
+            </Principal>
+            <Dependent Role="SourceDBConnection">
+              <PropertyRef Name="sourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceDBConnection_TableCode">
+          <End Role="TableCode" Type="Self.TableCode" Multiplicity="0..1" />
+          <End Role="SourceDBConnection" Type="Self.SourceDBConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableCode">
+              <PropertyRef Name="tableID" />
+            </Principal>
+            <Dependent Role="SourceDBConnection">
+              <PropertyRef Name="tableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ProjectModelStoreContainer">
+          <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthorsPublications" EntityType="Self.AuthorsPublications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Excavations" EntityType="Self.Excavations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExcavationsPublications" EntityType="Self.ExcavationsPublications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Findings" EntityType="Self.Findings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FindingsPeriods" EntityType="Self.FindingsPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FindingType" EntityType="Self.FindingType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationAPIResult" EntityType="Self.LocationAPIResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodicals" EntityType="Self.Periodicals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publications" EntityType="Self.Publications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublicationType" EntityType="Self.PublicationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecordSource" EntityType="Self.RecordSource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Researchers" EntityType="Self.Researchers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResearchersExcavations" EntityType="Self.ResearchersExcavations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteNature" EntityType="Self.SiteNature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SitesName" EntityType="Self.SitesName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SitesPeriods" EntityType="Self.SitesPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SitesSiteNames" EntityType="Self.SitesSiteNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteType" EntityType="Self.SiteType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SourceDBConnection" EntityType="Self.SourceDBConnection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableCode" EntityType="Self.TableCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="temp_names" EntityType="Self.temp_names" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AuthorsPublications_Authors" Association="Self.FK_AuthorsPublications_Authors">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="AuthorsPublications" EntitySet="AuthorsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorsPublications_Publications" Association="Self.FK_AuthorsPublications_Publications">
+            <End Role="Publications" EntitySet="Publications" />
+            <End Role="AuthorsPublications" EntitySet="AuthorsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Excavations_Areas" Association="Self.FK_Excavations_Areas">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Excavations" EntitySet="Excavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Excavations_Sites" Association="Self.FK_Excavations_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="Excavations" EntitySet="Excavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExcavationsPublications_Excavations" Association="Self.FK_ExcavationsPublications_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="ExcavationsPublications" EntitySet="ExcavationsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExcavationsPublications_Publications" Association="Self.FK_ExcavationsPublications_Publications">
+            <End Role="Publications" EntitySet="Publications" />
+            <End Role="ExcavationsPublications" EntitySet="ExcavationsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_Excavations" Association="Self.FK_Findings_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingSiteNature" Association="Self.FK_Findings_FindingSiteNature">
+            <End Role="SiteNature" EntitySet="SiteNature" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingSiteType" Association="Self.FK_Findings_FindingSiteType">
+            <End Role="SiteType" EntitySet="SiteType" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingType" Association="Self.FK_Findings_FindingType">
+            <End Role="FindingType" EntitySet="FindingType" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindingsPeriods_Findings" Association="Self.FK_FindingsPeriods_Findings">
+            <End Role="Findings" EntitySet="Findings" />
+            <End Role="FindingsPeriods" EntitySet="FindingsPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindingsPeriods_Period" Association="Self.FK_FindingsPeriods_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="FindingsPeriods" EntitySet="FindingsPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationAPIResult_Sites" Association="Self.FK_LocationAPIResult_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="LocationAPIResult" EntitySet="LocationAPIResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publications_Periodicals" Association="Self.FK_Publications_Periodicals">
+            <End Role="Periodicals" EntitySet="Periodicals" />
+            <End Role="Publications" EntitySet="Publications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publications_PublicationType" Association="Self.FK_Publications_PublicationType">
+            <End Role="PublicationType" EntitySet="PublicationType" />
+            <End Role="Publications" EntitySet="Publications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResearchersExcavations_Excavations" Association="Self.FK_ResearchersExcavations_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="ResearchersExcavations" EntitySet="ResearchersExcavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResearchesExcavations_Researchers" Association="Self.FK_ResearchesExcavations_Researchers">
+            <End Role="Researchers" EntitySet="Researchers" />
+            <End Role="ResearchersExcavations" EntitySet="ResearchersExcavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesName_Languages" Association="Self.FK_SitesName_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="SitesName" EntitySet="SitesName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesPeriods_Period" Association="Self.FK_SitesPeriods_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="SitesPeriods" EntitySet="SitesPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesPeriods_Sites" Association="Self.FK_SitesPeriods_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="SitesPeriods" EntitySet="SitesPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesSiteNames_Sites" Association="Self.FK_SitesSiteNames_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="SitesSiteNames" EntitySet="SitesSiteNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesSiteNames_SitesName" Association="Self.FK_SitesSiteNames_SitesName">
+            <End Role="SitesName" EntitySet="SitesName" />
+            <End Role="SitesSiteNames" EntitySet="SitesSiteNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceDBConnection_RecordSource1" Association="Self.FK_SourceDBConnection_RecordSource1">
+            <End Role="RecordSource" EntitySet="RecordSource" />
+            <End Role="SourceDBConnection" EntitySet="SourceDBConnection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceDBConnection_TableCode" Association="Self.FK_SourceDBConnection_TableCode">
+            <End Role="TableCode" EntitySet="TableCode" />
+            <End Role="SourceDBConnection" EntitySet="SourceDBConnection" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="areaID" />
+          </Key>
+          <Property Name="areaID" Type="Int32" Nullable="false" />
+          <Property Name="areaHeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="areaEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Excavations" Relationship="Self.FK_Excavations_Areas" FromRole="Areas" ToRole="Excavations" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="authorID" />
+          </Key>
+          <Property Name="authorID" Type="Int32" Nullable="false" />
+          <Property Name="nameHeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nameEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AuthorsPublications" Relationship="Self.FK_AuthorsPublications_Authors" FromRole="Authors" ToRole="AuthorsPublications" />
+        </EntityType>
+        <EntityType Name="AuthorsPublication">
+          <Key>
+            <PropertyRef Name="authorPublicationID" />
+            <PropertyRef Name="authorID" />
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="authorPublicationID" Type="Int32" Nullable="false" />
+          <Property Name="authorID" Type="Int32" Nullable="false" />
+          <Property Name="publicationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_AuthorsPublications_Authors" FromRole="AuthorsPublications" ToRole="Authors" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK_AuthorsPublications_Publications" FromRole="AuthorsPublications" ToRole="Publications" />
+        </EntityType>
+        <EntityType Name="Excavation">
+          <Key>
+            <PropertyRef Name="excavationID" />
+          </Key>
+          <Property Name="excavationID" Type="Int32" Nullable="false" />
+          <Property Name="siteID" Type="Int32" />
+          <Property Name="excavationDate" Type="DateTime" Precision="3" />
+          <Property Name="areaID" Type="Int32" />
+          <Property Name="excavationSize" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bibliography" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="excavationHeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="excavationEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Excavations_Areas" FromRole="Excavations" ToRole="Areas" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_Excavations_Sites" FromRole="Excavations" ToRole="Sites" />
+          <NavigationProperty Name="ExcavationsPublications" Relationship="Self.FK_ExcavationsPublications_Excavations" FromRole="Excavations" ToRole="ExcavationsPublications" />
+          <NavigationProperty Name="Findings" Relationship="Self.FK_Findings_Excavations" FromRole="Excavations" ToRole="Findings" />
+          <NavigationProperty Name="ResearchersExcavations" Relationship="Self.FK_ResearchersExcavations_Excavations" FromRole="Excavations" ToRole="ResearchersExcavations" />
+        </EntityType>
+        <EntityType Name="ExcavationsPublication">
+          <Key>
+            <PropertyRef Name="excavationPublicationID" />
+            <PropertyRef Name="excavationID" />
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="excavationPublicationID" Type="Int32" Nullable="false" />
+          <Property Name="excavationID" Type="Int32" Nullable="false" />
+          <Property Name="publicationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excavation" Relationship="Self.FK_ExcavationsPublications_Excavations" FromRole="ExcavationsPublications" ToRole="Excavations" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK_ExcavationsPublications_Publications" FromRole="ExcavationsPublications" ToRole="Publications" />
+        </EntityType>
+        <EntityType Name="Finding">
+          <Key>
+            <PropertyRef Name="findingID" />
+          </Key>
+          <Property Name="findingID" Type="Int32" Nullable="false" />
+          <Property Name="descriptionEng" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionHeb" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="findingTypeID" Type="Int32" Nullable="false" />
+          <Property Name="siteTypeID" Type="Int32" Nullable="false" />
+          <Property Name="siteNatureID" Type="Int32" Nullable="false" />
+          <Property Name="findingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="excavationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excavation" Relationship="Self.FK_Findings_Excavations" FromRole="Findings" ToRole="Excavations" />
+          <NavigationProperty Name="SiteNature" Relationship="Self.FK_Findings_FindingSiteNature" FromRole="Findings" ToRole="SiteNature" />
+          <NavigationProperty Name="SiteType" Relationship="Self.FK_Findings_FindingSiteType" FromRole="Findings" ToRole="SiteType" />
+          <NavigationProperty Name="FindingType" Relationship="Self.FK_Findings_FindingType" FromRole="Findings" ToRole="FindingType" />
+          <NavigationProperty Name="FindingsPeriods" Relationship="Self.FK_FindingsPeriods_Findings" FromRole="Findings" ToRole="FindingsPeriods" />
+        </EntityType>
+        <EntityType Name="FindingsPeriod">
+          <Key>
+            <PropertyRef Name="findingPeriodID" />
+            <PropertyRef Name="findingID" />
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="findingPeriodID" Type="Int32" Nullable="false" />
+          <Property Name="findingID" Type="Int32" Nullable="false" />
+          <Property Name="periodID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Finding" Relationship="Self.FK_FindingsPeriods_Findings" FromRole="FindingsPeriods" ToRole="Findings" />
+          <NavigationProperty Name="Period" Relationship="Self.FK_FindingsPeriods_Period" FromRole="FindingsPeriods" ToRole="Period" />
+        </EntityType>
+        <EntityType Name="FindingType">
+          <Key>
+            <PropertyRef Name="findingTypeID" />
+          </Key>
+          <Property Name="findingTypeID" Type="Int32" Nullable="false" />
+          <Property Name="findingTypeDescriptionHeb" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="findingTypeDescriptionEng" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Findings" Relationship="Self.FK_Findings_FindingType" FromRole="FindingType" ToRole="Findings" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="languageID" />
+          </Key>
+          <Property Name="languageID" Type="Int32" Nullable="false" />
+          <Property Name="languageHeb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="languageEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SitesNames" Relationship="Self.FK_SitesName_Languages" FromRole="Languages" ToRole="SitesName" />
+        </EntityType>
+        <EntityType Name="LocationAPIResult">
+          <Key>
+            <PropertyRef Name="siteID" />
+          </Key>
+          <Property Name="siteID" Type="Int32" Nullable="false" />
+          <Property Name="coordinateSource" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="locationiqLon" Type="Double" />
+          <Property Name="locationiqLat" Type="Double" />
+          <Property Name="googleLat" Type="Double" />
+          <Property Name="googleLon" Type="Double" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_LocationAPIResult_Sites" FromRole="LocationAPIResult" ToRole="Sites" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="periodID" Type="Int32" Nullable="false" />
+          <Property Name="nameHeb" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nameEng" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fromYear" Type="Int32" />
+          <Property Name="upToYear" Type="Int32" />
+          <Property Name="periodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FindingsPeriods" Relationship="Self.FK_FindingsPeriods_Period" FromRole="Period" ToRole="FindingsPeriods" />
+          <NavigationProperty Name="SitesPeriods" Relationship="Self.FK_SitesPeriods_Period" FromRole="Period" ToRole="SitesPeriods" />
+        </EntityType>
+        <EntityType Name="Periodical">
+          <Key>
+            <PropertyRef Name="periodicalID" />
+          </Key>
+          <Property Name="periodicalID" Type="Int32" Nullable="false" />
+          <Property Name="periodicalNameHeb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="periodicalNameEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Publications" Relationship="Self.FK_Publications_Periodicals" FromRole="Periodicals" ToRole="Publications" />
+        </EntityType>
+        <EntityType Name="Publication">
+          <Key>
+            <PropertyRef Name="publicationID" />
+          </Key>
+          <Property Name="publicationID" Type="Int32" Nullable="false" />
+          <Property Name="articleTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="periodicalID" Type="Int32" />
+          <Property Name="bibliography" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FDFName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="publicationTypeID" Type="Int32" />
+          <Property Name="abstractEng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="abstractHeb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AuthorsPublications" Relationship="Self.FK_AuthorsPublications_Publications" FromRole="Publications" ToRole="AuthorsPublications" />
+          <NavigationProperty Name="ExcavationsPublications" Relationship="Self.FK_ExcavationsPublications_Publications" FromRole="Publications" ToRole="ExcavationsPublications" />
+          <NavigationProperty Name="Periodical" Relationship="Self.FK_Publications_Periodicals" FromRole="Publications" ToRole="Periodicals" />
+          <NavigationProperty Name="PublicationType" Relationship="Self.FK_Publications_PublicationType" FromRole="Publications" ToRole="PublicationType" />
+        </EntityType>
+        <EntityType Name="PublicationType">
+          <Key>
+            <PropertyRef Name="publicationTypeID" />
+          </Key>
+          <Property Name="publicationTypeID" Type="Int32" Nullable="false" />
+          <Property Name="publicationTypeHeb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="publicationTypeEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Publications" Relationship="Self.FK_Publications_PublicationType" FromRole="PublicationType" ToRole="Publications" />
+        </EntityType>
+        <EntityType Name="RecordSource">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Name="recordID" Type="Int32" Nullable="false" />
+          <Property Name="sourceID" Type="Int32" Nullable="false" />
+          <Property Name="recordSourceTable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="datails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SourceDBConnections" Relationship="Self.FK_SourceDBConnection_RecordSource1" FromRole="RecordSource" ToRole="SourceDBConnection" />
+        </EntityType>
+        <EntityType Name="Researcher">
+          <Key>
+            <PropertyRef Name="researcherID" />
+          </Key>
+          <Property Name="researcherID" Type="Int32" Nullable="false" />
+          <Property Name="researcherNameHeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="researcherNameEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ResearchersExcavations" Relationship="Self.FK_ResearchesExcavations_Researchers" FromRole="Researchers" ToRole="ResearchersExcavations" />
+        </EntityType>
+        <EntityType Name="ResearchersExcavation">
+          <Key>
+            <PropertyRef Name="researcherExcavationID" />
+            <PropertyRef Name="researcherID" />
+            <PropertyRef Name="excavationID" />
+          </Key>
+          <Property Name="researcherExcavationID" Type="Int32" Nullable="false" />
+          <Property Name="researcherID" Type="Int32" Nullable="false" />
+          <Property Name="excavationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excavation" Relationship="Self.FK_ResearchersExcavations_Excavations" FromRole="ResearchersExcavations" ToRole="Excavations" />
+          <NavigationProperty Name="Researcher" Relationship="Self.FK_ResearchesExcavations_Researchers" FromRole="ResearchersExcavations" ToRole="Researchers" />
+        </EntityType>
+        <EntityType Name="SiteNature">
+          <Key>
+            <PropertyRef Name="findingSiteNatureID" />
+          </Key>
+          <Property Name="findingSiteNatureID" Type="Int32" Nullable="false" />
+          <Property Name="findingSiteNatureHeb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="findingSiteNatureEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Findings" Relationship="Self.FK_Findings_FindingSiteNature" FromRole="SiteNature" ToRole="Findings" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="siteID" />
+          </Key>
+          <Property Name="siteID" Type="Int32" Nullable="false" />
+          <Property Name="LabelX" Type="Double" />
+          <Property Name="LabelY" Type="Double" />
+          <Property Name="NIG_Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WGS84_Info" Type="Geography" />
+          <Property Name="siteSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Excavations" Relationship="Self.FK_Excavations_Sites" FromRole="Sites" ToRole="Excavations" />
+          <NavigationProperty Name="LocationAPIResult" Relationship="Self.FK_LocationAPIResult_Sites" FromRole="Sites" ToRole="LocationAPIResult" />
+          <NavigationProperty Name="SitesPeriods" Relationship="Self.FK_SitesPeriods_Sites" FromRole="Sites" ToRole="SitesPeriods" />
+          <NavigationProperty Name="SitesSiteNames" Relationship="Self.FK_SitesSiteNames_Sites" FromRole="Sites" ToRole="SitesSiteNames" />
+          <Property Name="oldSiteID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SitesName">
+          <Key>
+            <PropertyRef Name="siteNameID" />
+          </Key>
+          <Property Name="siteNameID" Type="Int32" Nullable="false" />
+          <Property Name="txtName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="languageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_SitesName_Languages" FromRole="SitesName" ToRole="Languages" />
+          <NavigationProperty Name="SitesSiteNames" Relationship="Self.FK_SitesSiteNames_SitesName" FromRole="SitesName" ToRole="SitesSiteNames" />
+        </EntityType>
+        <EntityType Name="SitesPeriod">
+          <Key>
+            <PropertyRef Name="sitesPeriodsID" />
+            <PropertyRef Name="siteID" />
+            <PropertyRef Name="periodID" />
+          </Key>
+          <Property Name="sitesPeriodsID" Type="Int32" Nullable="false" />
+          <Property Name="siteID" Type="Int32" Nullable="false" />
+          <Property Name="periodID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Period" Relationship="Self.FK_SitesPeriods_Period" FromRole="SitesPeriods" ToRole="Period" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_SitesPeriods_Sites" FromRole="SitesPeriods" ToRole="Sites" />
+        </EntityType>
+        <EntityType Name="SitesSiteName">
+          <Key>
+            <PropertyRef Name="sitesSiteNamesID" />
+            <PropertyRef Name="siteID" />
+            <PropertyRef Name="siteNameID" />
+          </Key>
+          <Property Name="sitesSiteNamesID" Type="Int32" Nullable="false" />
+          <Property Name="siteID" Type="Int32" Nullable="false" />
+          <Property Name="siteNameID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_SitesSiteNames_Sites" FromRole="SitesSiteNames" ToRole="Sites" />
+          <NavigationProperty Name="SitesName" Relationship="Self.FK_SitesSiteNames_SitesName" FromRole="SitesSiteNames" ToRole="SitesName" />
+        </EntityType>
+        <EntityType Name="SiteType">
+          <Key>
+            <PropertyRef Name="findingSiteTypeID" />
+          </Key>
+          <Property Name="findingSiteTypeID" Type="Int32" Nullable="false" />
+          <Property Name="findingSiteTypeEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="findingSiteTypeHeb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Findings" Relationship="Self.FK_Findings_FindingSiteType" FromRole="SiteType" ToRole="Findings" />
+        </EntityType>
+        <EntityType Name="SourceDBConnection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="sourceID" Type="Int32" />
+          <Property Name="dbID" Type="Int32" />
+          <Property Name="tableID" Type="Int32" />
+          <NavigationProperty Name="RecordSource" Relationship="Self.FK_SourceDBConnection_RecordSource1" FromRole="SourceDBConnection" ToRole="RecordSource" />
+          <NavigationProperty Name="TableCode" Relationship="Self.FK_SourceDBConnection_TableCode" FromRole="SourceDBConnection" ToRole="TableCode" />
+        </EntityType>
+        <EntityType Name="TableCode">
+          <Key>
+            <PropertyRef Name="tableID" />
+          </Key>
+          <Property Name="tableID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tableName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SourceDBConnections" Relationship="Self.FK_SourceDBConnection_TableCode" FromRole="TableCode" ToRole="SourceDBConnection" />
+        </EntityType>
+        <EntityType Name="temp_names">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FAM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Excavations_Areas">
+          <End Role="Areas" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Excavations" Type="Self.Excavation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="areaID" />
+            </Principal>
+            <Dependent Role="Excavations">
+              <PropertyRef Name="areaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorsPublications_Authors">
+          <End Role="Authors" Type="Self.Author" Multiplicity="1" />
+          <End Role="AuthorsPublications" Type="Self.AuthorsPublication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="authorID" />
+            </Principal>
+            <Dependent Role="AuthorsPublications">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorsPublications_Publications">
+          <End Role="Publications" Type="Self.Publication" Multiplicity="1" />
+          <End Role="AuthorsPublications" Type="Self.AuthorsPublication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publications">
+              <PropertyRef Name="publicationID" />
+            </Principal>
+            <Dependent Role="AuthorsPublications">
+              <PropertyRef Name="publicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Excavations_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="0..1" />
+          <End Role="Excavations" Type="Self.Excavation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="Excavations">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExcavationsPublications_Excavations">
+          <End Role="Excavations" Type="Self.Excavation" Multiplicity="1" />
+          <End Role="ExcavationsPublications" Type="Self.ExcavationsPublication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="ExcavationsPublications">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_Excavations">
+          <End Role="Excavations" Type="Self.Excavation" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Finding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResearchersExcavations_Excavations">
+          <End Role="Excavations" Type="Self.Excavation" Multiplicity="1" />
+          <End Role="ResearchersExcavations" Type="Self.ResearchersExcavation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excavations">
+              <PropertyRef Name="excavationID" />
+            </Principal>
+            <Dependent Role="ResearchersExcavations">
+              <PropertyRef Name="excavationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExcavationsPublications_Publications">
+          <End Role="Publications" Type="Self.Publication" Multiplicity="1" />
+          <End Role="ExcavationsPublications" Type="Self.ExcavationsPublication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publications">
+              <PropertyRef Name="publicationID" />
+            </Principal>
+            <Dependent Role="ExcavationsPublications">
+              <PropertyRef Name="publicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingSiteNature">
+          <End Role="SiteNature" Type="Self.SiteNature" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Finding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteNature">
+              <PropertyRef Name="findingSiteNatureID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="siteNatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingSiteType">
+          <End Role="SiteType" Type="Self.SiteType" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Finding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteType">
+              <PropertyRef Name="findingSiteTypeID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="siteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Findings_FindingType">
+          <End Role="FindingType" Type="Self.FindingType" Multiplicity="1" />
+          <End Role="Findings" Type="Self.Finding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FindingType">
+              <PropertyRef Name="findingTypeID" />
+            </Principal>
+            <Dependent Role="Findings">
+              <PropertyRef Name="findingTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindingsPeriods_Findings">
+          <End Role="Findings" Type="Self.Finding" Multiplicity="1" />
+          <End Role="FindingsPeriods" Type="Self.FindingsPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Findings">
+              <PropertyRef Name="findingID" />
+            </Principal>
+            <Dependent Role="FindingsPeriods">
+              <PropertyRef Name="findingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindingsPeriods_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="FindingsPeriods" Type="Self.FindingsPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="periodID" />
+            </Principal>
+            <Dependent Role="FindingsPeriods">
+              <PropertyRef Name="periodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesName_Languages">
+          <End Role="Languages" Type="Self.Language" Multiplicity="1" />
+          <End Role="SitesName" Type="Self.SitesName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="languageID" />
+            </Principal>
+            <Dependent Role="SitesName">
+              <PropertyRef Name="languageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationAPIResult_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="LocationAPIResult" Type="Self.LocationAPIResult" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="LocationAPIResult">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesPeriods_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="SitesPeriods" Type="Self.SitesPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="periodID" />
+            </Principal>
+            <Dependent Role="SitesPeriods">
+              <PropertyRef Name="periodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publications_Periodicals">
+          <End Role="Periodicals" Type="Self.Periodical" Multiplicity="0..1" />
+          <End Role="Publications" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodicals">
+              <PropertyRef Name="periodicalID" />
+            </Principal>
+            <Dependent Role="Publications">
+              <PropertyRef Name="periodicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publications_PublicationType">
+          <End Role="PublicationType" Type="Self.PublicationType" Multiplicity="0..1" />
+          <End Role="Publications" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublicationType">
+              <PropertyRef Name="publicationTypeID" />
+            </Principal>
+            <Dependent Role="Publications">
+              <PropertyRef Name="publicationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceDBConnection_RecordSource1">
+          <End Role="RecordSource" Type="Self.RecordSource" Multiplicity="0..1" />
+          <End Role="SourceDBConnection" Type="Self.SourceDBConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecordSource">
+              <PropertyRef Name="recordID" />
+            </Principal>
+            <Dependent Role="SourceDBConnection">
+              <PropertyRef Name="sourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResearchesExcavations_Researchers">
+          <End Role="Researchers" Type="Self.Researcher" Multiplicity="1" />
+          <End Role="ResearchersExcavations" Type="Self.ResearchersExcavation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Researchers">
+              <PropertyRef Name="researcherID" />
+            </Principal>
+            <Dependent Role="ResearchersExcavations">
+              <PropertyRef Name="researcherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesPeriods_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="SitesPeriods" Type="Self.SitesPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="SitesPeriods">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesSiteNames_Sites">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="SitesSiteNames" Type="Self.SitesSiteName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="siteID" />
+            </Principal>
+            <Dependent Role="SitesSiteNames">
+              <PropertyRef Name="siteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SitesSiteNames_SitesName">
+          <End Role="SitesName" Type="Self.SitesName" Multiplicity="1" />
+          <End Role="SitesSiteNames" Type="Self.SitesSiteName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SitesName">
+              <PropertyRef Name="siteNameID" />
+            </Principal>
+            <Dependent Role="SitesSiteNames">
+              <PropertyRef Name="siteNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SourceDBConnection_TableCode">
+          <End Role="TableCode" Type="Self.TableCode" Multiplicity="0..1" />
+          <End Role="SourceDBConnection" Type="Self.SourceDBConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableCode">
+              <PropertyRef Name="tableID" />
+            </Principal>
+            <Dependent Role="SourceDBConnection">
+              <PropertyRef Name="tableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="AuthorsPublications" EntityType="Self.AuthorsPublication" />
+          <EntitySet Name="Excavations" EntityType="Self.Excavation" />
+          <EntitySet Name="ExcavationsPublications" EntityType="Self.ExcavationsPublication" />
+          <EntitySet Name="Findings" EntityType="Self.Finding" />
+          <EntitySet Name="FindingsPeriods" EntityType="Self.FindingsPeriod" />
+          <EntitySet Name="FindingTypes" EntityType="Self.FindingType" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="LocationAPIResults" EntityType="Self.LocationAPIResult" />
+          <EntitySet Name="Periods" EntityType="Self.Period" />
+          <EntitySet Name="Periodicals" EntityType="Self.Periodical" />
+          <EntitySet Name="Publications" EntityType="Self.Publication" />
+          <EntitySet Name="PublicationTypes" EntityType="Self.PublicationType" />
+          <EntitySet Name="RecordSources" EntityType="Self.RecordSource" />
+          <EntitySet Name="Researchers" EntityType="Self.Researcher" />
+          <EntitySet Name="ResearchersExcavations" EntityType="Self.ResearchersExcavation" />
+          <EntitySet Name="SiteNatures" EntityType="Self.SiteNature" />
+          <EntitySet Name="Sites" EntityType="Self.Site" />
+          <EntitySet Name="SitesNames" EntityType="Self.SitesName" />
+          <EntitySet Name="SitesPeriods" EntityType="Self.SitesPeriod" />
+          <EntitySet Name="SitesSiteNames" EntityType="Self.SitesSiteName" />
+          <EntitySet Name="SiteTypes" EntityType="Self.SiteType" />
+          <EntitySet Name="SourceDBConnections" EntityType="Self.SourceDBConnection" />
+          <EntitySet Name="TableCodes" EntityType="Self.TableCode" />
+          <EntitySet Name="temp_names" EntityType="Self.temp_names" />
+          <AssociationSet Name="FK_Excavations_Areas" Association="Self.FK_Excavations_Areas">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Excavations" EntitySet="Excavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorsPublications_Authors" Association="Self.FK_AuthorsPublications_Authors">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="AuthorsPublications" EntitySet="AuthorsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorsPublications_Publications" Association="Self.FK_AuthorsPublications_Publications">
+            <End Role="Publications" EntitySet="Publications" />
+            <End Role="AuthorsPublications" EntitySet="AuthorsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Excavations_Sites" Association="Self.FK_Excavations_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="Excavations" EntitySet="Excavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExcavationsPublications_Excavations" Association="Self.FK_ExcavationsPublications_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="ExcavationsPublications" EntitySet="ExcavationsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_Excavations" Association="Self.FK_Findings_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResearchersExcavations_Excavations" Association="Self.FK_ResearchersExcavations_Excavations">
+            <End Role="Excavations" EntitySet="Excavations" />
+            <End Role="ResearchersExcavations" EntitySet="ResearchersExcavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExcavationsPublications_Publications" Association="Self.FK_ExcavationsPublications_Publications">
+            <End Role="Publications" EntitySet="Publications" />
+            <End Role="ExcavationsPublications" EntitySet="ExcavationsPublications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingSiteNature" Association="Self.FK_Findings_FindingSiteNature">
+            <End Role="SiteNature" EntitySet="SiteNatures" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingSiteType" Association="Self.FK_Findings_FindingSiteType">
+            <End Role="SiteType" EntitySet="SiteTypes" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Findings_FindingType" Association="Self.FK_Findings_FindingType">
+            <End Role="FindingType" EntitySet="FindingTypes" />
+            <End Role="Findings" EntitySet="Findings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindingsPeriods_Findings" Association="Self.FK_FindingsPeriods_Findings">
+            <End Role="Findings" EntitySet="Findings" />
+            <End Role="FindingsPeriods" EntitySet="FindingsPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindingsPeriods_Period" Association="Self.FK_FindingsPeriods_Period">
+            <End Role="Period" EntitySet="Periods" />
+            <End Role="FindingsPeriods" EntitySet="FindingsPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesName_Languages" Association="Self.FK_SitesName_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="SitesName" EntitySet="SitesNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationAPIResult_Sites" Association="Self.FK_LocationAPIResult_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="LocationAPIResult" EntitySet="LocationAPIResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesPeriods_Period" Association="Self.FK_SitesPeriods_Period">
+            <End Role="Period" EntitySet="Periods" />
+            <End Role="SitesPeriods" EntitySet="SitesPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publications_Periodicals" Association="Self.FK_Publications_Periodicals">
+            <End Role="Periodicals" EntitySet="Periodicals" />
+            <End Role="Publications" EntitySet="Publications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publications_PublicationType" Association="Self.FK_Publications_PublicationType">
+            <End Role="PublicationType" EntitySet="PublicationTypes" />
+            <End Role="Publications" EntitySet="Publications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceDBConnection_RecordSource1" Association="Self.FK_SourceDBConnection_RecordSource1">
+            <End Role="RecordSource" EntitySet="RecordSources" />
+            <End Role="SourceDBConnection" EntitySet="SourceDBConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResearchesExcavations_Researchers" Association="Self.FK_ResearchesExcavations_Researchers">
+            <End Role="Researchers" EntitySet="Researchers" />
+            <End Role="ResearchersExcavations" EntitySet="ResearchersExcavations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesPeriods_Sites" Association="Self.FK_SitesPeriods_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="SitesPeriods" EntitySet="SitesPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesSiteNames_Sites" Association="Self.FK_SitesSiteNames_Sites">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="SitesSiteNames" EntitySet="SitesSiteNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SitesSiteNames_SitesName" Association="Self.FK_SitesSiteNames_SitesName">
+            <End Role="SitesName" EntitySet="SitesNames" />
+            <End Role="SitesSiteNames" EntitySet="SitesSiteNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SourceDBConnection_TableCode" Association="Self.FK_SourceDBConnection_TableCode">
+            <End Role="TableCode" EntitySet="TableCodes" />
+            <End Role="SourceDBConnection" EntitySet="SourceDBConnections" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ProjectModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ProjectModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectDB">
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="ProjectModel.Area">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="areaID" ColumnName="areaID" />
+                <ScalarProperty Name="areaHeb" ColumnName="areaHeb" />
+                <ScalarProperty Name="areaEng" ColumnName="areaEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="ProjectModel.Author">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="authorID" ColumnName="authorID" />
+                <ScalarProperty Name="nameHeb" ColumnName="nameHeb" />
+                <ScalarProperty Name="nameEng" ColumnName="nameEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthorsPublications">
+            <EntityTypeMapping TypeName="ProjectModel.AuthorsPublication">
+              <MappingFragment StoreEntitySet="AuthorsPublications">
+                <ScalarProperty Name="authorPublicationID" ColumnName="authorPublicationID" />
+                <ScalarProperty Name="authorID" ColumnName="authorID" />
+                <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Excavations">
+            <EntityTypeMapping TypeName="ProjectModel.Excavation">
+              <MappingFragment StoreEntitySet="Excavations">
+                <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="excavationDate" ColumnName="excavationDate" />
+                <ScalarProperty Name="areaID" ColumnName="areaID" />
+                <ScalarProperty Name="excavationSize" ColumnName="excavationSize" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+                <ScalarProperty Name="excavationHeb" ColumnName="excavationHeb" />
+                <ScalarProperty Name="excavationEng" ColumnName="excavationEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExcavationsPublications">
+            <EntityTypeMapping TypeName="ProjectModel.ExcavationsPublication">
+              <MappingFragment StoreEntitySet="ExcavationsPublications">
+                <ScalarProperty Name="excavationPublicationID" ColumnName="excavationPublicationID" />
+                <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+                <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Findings">
+            <EntityTypeMapping TypeName="ProjectModel.Finding">
+              <MappingFragment StoreEntitySet="Findings">
+                <ScalarProperty Name="findingID" ColumnName="findingID" />
+                <ScalarProperty Name="descriptionEng" ColumnName="descriptionEng" />
+                <ScalarProperty Name="descriptionHeb" ColumnName="descriptionHeb" />
+                <ScalarProperty Name="findingTypeID" ColumnName="findingTypeID" />
+                <ScalarProperty Name="siteTypeID" ColumnName="siteTypeID" />
+                <ScalarProperty Name="siteNatureID" ColumnName="siteNatureID" />
+                <ScalarProperty Name="findingDate" ColumnName="findingDate" />
+                <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FindingsPeriods">
+            <EntityTypeMapping TypeName="ProjectModel.FindingsPeriod">
+              <MappingFragment StoreEntitySet="FindingsPeriods">
+                <ScalarProperty Name="findingPeriodID" ColumnName="findingPeriodID" />
+                <ScalarProperty Name="findingID" ColumnName="findingID" />
+                <ScalarProperty Name="periodID" ColumnName="periodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FindingTypes">
+            <EntityTypeMapping TypeName="ProjectModel.FindingType">
+              <MappingFragment StoreEntitySet="FindingType">
+                <ScalarProperty Name="findingTypeID" ColumnName="findingTypeID" />
+                <ScalarProperty Name="findingTypeDescriptionHeb" ColumnName="findingTypeDescriptionHeb" />
+                <ScalarProperty Name="findingTypeDescriptionEng" ColumnName="findingTypeDescriptionEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="ProjectModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="languageID" ColumnName="languageID" />
+                <ScalarProperty Name="languageHeb" ColumnName="languageHeb" />
+                <ScalarProperty Name="languageEng" ColumnName="languageEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationAPIResults">
+            <EntityTypeMapping TypeName="ProjectModel.LocationAPIResult">
+              <MappingFragment StoreEntitySet="LocationAPIResult">
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="coordinateSource" ColumnName="coordinateSource" />
+                <ScalarProperty Name="locationiqLon" ColumnName="locationiqLon" />
+                <ScalarProperty Name="locationiqLat" ColumnName="locationiqLat" />
+                <ScalarProperty Name="googleLat" ColumnName="googleLat" />
+                <ScalarProperty Name="googleLon" ColumnName="googleLon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periods">
+            <EntityTypeMapping TypeName="ProjectModel.Period">
+              <MappingFragment StoreEntitySet="Period">
+                <ScalarProperty Name="periodID" ColumnName="periodID" />
+                <ScalarProperty Name="nameHeb" ColumnName="nameHeb" />
+                <ScalarProperty Name="nameEng" ColumnName="nameEng" />
+                <ScalarProperty Name="fromYear" ColumnName="fromYear" />
+                <ScalarProperty Name="upToYear" ColumnName="upToYear" />
+                <ScalarProperty Name="periodType" ColumnName="periodType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodicals">
+            <EntityTypeMapping TypeName="ProjectModel.Periodical">
+              <MappingFragment StoreEntitySet="Periodicals">
+                <ScalarProperty Name="periodicalID" ColumnName="periodicalID" />
+                <ScalarProperty Name="periodicalNameHeb" ColumnName="periodicalNameHeb" />
+                <ScalarProperty Name="periodicalNameEng" ColumnName="periodicalNameEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publications">
+            <EntityTypeMapping TypeName="ProjectModel.Publication">
+              <MappingFragment StoreEntitySet="Publications">
+                <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+                <ScalarProperty Name="articleTitle" ColumnName="articleTitle" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="periodicalID" ColumnName="periodicalID" />
+                <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="FDFName" ColumnName="FDFName" />
+                <ScalarProperty Name="publicationTypeID" ColumnName="publicationTypeID" />
+                <ScalarProperty Name="abstractEng" ColumnName="abstractEng" />
+                <ScalarProperty Name="abstractHeb" ColumnName="abstractHeb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublicationTypes">
+            <EntityTypeMapping TypeName="ProjectModel.PublicationType">
+              <MappingFragment StoreEntitySet="PublicationType">
+                <ScalarProperty Name="publicationTypeID" ColumnName="publicationTypeID" />
+                <ScalarProperty Name="publicationTypeHeb" ColumnName="publicationTypeHeb" />
+                <ScalarProperty Name="publicationTypeEng" ColumnName="publicationTypeEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecordSources">
+            <EntityTypeMapping TypeName="ProjectModel.RecordSource">
+              <MappingFragment StoreEntitySet="RecordSource">
+                <ScalarProperty Name="recordID" ColumnName="recordID" />
+                <ScalarProperty Name="sourceID" ColumnName="sourceID" />
+                <ScalarProperty Name="recordSourceTable" ColumnName="recordSourceTable" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="datails" ColumnName="datails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Researchers">
+            <EntityTypeMapping TypeName="ProjectModel.Researcher">
+              <MappingFragment StoreEntitySet="Researchers">
+                <ScalarProperty Name="researcherID" ColumnName="researcherID" />
+                <ScalarProperty Name="researcherNameHeb" ColumnName="researcherNameHeb" />
+                <ScalarProperty Name="researcherNameEng" ColumnName="researcherNameEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResearchersExcavations">
+            <EntityTypeMapping TypeName="ProjectModel.ResearchersExcavation">
+              <MappingFragment StoreEntitySet="ResearchersExcavations">
+                <ScalarProperty Name="researcherExcavationID" ColumnName="researcherExcavationID" />
+                <ScalarProperty Name="researcherID" ColumnName="researcherID" />
+                <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteNatures">
+            <EntityTypeMapping TypeName="ProjectModel.SiteNature">
+              <MappingFragment StoreEntitySet="SiteNature">
+                <ScalarProperty Name="findingSiteNatureID" ColumnName="findingSiteNatureID" />
+                <ScalarProperty Name="findingSiteNatureHeb" ColumnName="findingSiteNatureHeb" />
+                <ScalarProperty Name="findingSiteNatureEng" ColumnName="findingSiteNatureEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="ProjectModel.Site">
+              <MappingFragment StoreEntitySet="Sites">
+                <ScalarProperty Name="oldSiteID" ColumnName="oldSiteID" />
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="LabelX" ColumnName="LabelX" />
+                <ScalarProperty Name="LabelY" ColumnName="LabelY" />
+                <ScalarProperty Name="NIG_Info" ColumnName="NIG_Info" />
+                <ScalarProperty Name="WGS84_Info" ColumnName="WGS84_Info" />
+                <ScalarProperty Name="siteSize" ColumnName="siteSize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SitesNames">
+            <EntityTypeMapping TypeName="ProjectModel.SitesName">
+              <MappingFragment StoreEntitySet="SitesName">
+                <ScalarProperty Name="siteNameID" ColumnName="siteNameID" />
+                <ScalarProperty Name="txtName" ColumnName="txtName" />
+                <ScalarProperty Name="languageID" ColumnName="languageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SitesPeriods">
+            <EntityTypeMapping TypeName="ProjectModel.SitesPeriod">
+              <MappingFragment StoreEntitySet="SitesPeriods">
+                <ScalarProperty Name="sitesPeriodsID" ColumnName="sitesPeriodsID" />
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="periodID" ColumnName="periodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SitesSiteNames">
+            <EntityTypeMapping TypeName="ProjectModel.SitesSiteName">
+              <MappingFragment StoreEntitySet="SitesSiteNames">
+                <ScalarProperty Name="sitesSiteNamesID" ColumnName="sitesSiteNamesID" />
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="siteNameID" ColumnName="siteNameID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteTypes">
+            <EntityTypeMapping TypeName="ProjectModel.SiteType">
+              <MappingFragment StoreEntitySet="SiteType">
+                <ScalarProperty Name="findingSiteTypeID" ColumnName="findingSiteTypeID" />
+                <ScalarProperty Name="findingSiteTypeEng" ColumnName="findingSiteTypeEng" />
+                <ScalarProperty Name="findingSiteTypeHeb" ColumnName="findingSiteTypeHeb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SourceDBConnections">
+            <EntityTypeMapping TypeName="ProjectModel.SourceDBConnection">
+              <MappingFragment StoreEntitySet="SourceDBConnection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="sourceID" ColumnName="sourceID" />
+                <ScalarProperty Name="dbID" ColumnName="dbID" />
+                <ScalarProperty Name="tableID" ColumnName="tableID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableCodes">
+            <EntityTypeMapping TypeName="ProjectModel.TableCode">
+              <MappingFragment StoreEntitySet="TableCode">
+                <ScalarProperty Name="tableID" ColumnName="tableID" />
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="temp_names">
+            <EntityTypeMapping TypeName="ProjectModel.temp_names">
+              <MappingFragment StoreEntitySet="temp_names">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FAM" ColumnName="FAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ProjectModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ProjectModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ProjectModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ProjectModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ProjectModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ProjectModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ProjectModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

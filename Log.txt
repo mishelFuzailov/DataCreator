@@ -1,0 +1,331 @@
+=============Error Logging ===========
+===========Start============= 01/09/2020 12:35:36
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Project_Final.InsertToTable.HazalaRecords(List`1 rows, List`1 years) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\InsertToTable.cs:line 196
+Problem Table: HazalaRecords
+Problem row: 36
+Problem value: Site Name
+===========End============= 01/09/2020 12:35:36
+=============Error Logging ===========
+===========Start============= 01/09/2020 14:38:10
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: HazalaRecords
+Problem row: 350
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 14:38:10
+=============Error Logging ===========
+===========Start============= 01/09/2020 15:16:31
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: HazalaRecords
+Problem row: 350
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 15:16:31
+=============Error Logging ===========
+===========Start============= 01/09/2020 15:30:22
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 93
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 15:30:22
+=============Error Logging ===========
+===========Start============= 01/09/2020 15:30:24
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 93
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 15:30:24
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:41:58
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 334
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:41:58
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:41:58
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 334
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:41:58
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:46:07
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 445
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:46:07
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:46:07
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 445
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:46:07
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:46:18
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 450
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:46:18
+=============Error Logging ===========
+===========Start============= 01/09/2020 17:46:18
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 450
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 17:46:18
+=============Error Logging ===========
+===========Start============= 01/09/2020 18:09:04
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 928
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 18:09:04
+=============Error Logging ===========
+===========Start============= 01/09/2020 18:09:04
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 928
+Problem value: location x1,y1,x2,y2
+===========End============= 01/09/2020 18:09:04
+=============Error Logging ===========
+===========Start============= 06/09/2020 14:49:48
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 93
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 14:49:48
+=============Error Logging ===========
+===========Start============= 06/09/2020 14:49:48
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 93
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 14:49:48
+=============Error Logging ===========
+===========Start============= 06/09/2020 14:58:15
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 334
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 14:58:15
+=============Error Logging ===========
+===========Start============= 06/09/2020 14:58:15
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 334
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 14:58:15
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:02:56
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 445
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:02:56
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:02:56
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 445
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:02:56
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:03:09
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 450
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:03:09
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:03:09
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 450
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:03:09
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:27:52
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 928
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:27:52
+=============Error Logging ===========
+===========Start============= 06/09/2020 15:27:52
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 928
+Problem value: location x1,y1,x2,y2
+===========End============= 06/09/2020 15:27:52
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:49:33
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 0
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:49:33
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:49:33
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 0
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:49:33
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:52:14
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 100
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:52:14
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:52:14
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename) in C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\Functions.cs:line 59
+Problem Table: NewsEng
+Problem row: 100
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:52:14
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:55:21
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 196
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:55:21
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:55:21
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 196
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:55:21
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:55:31
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 201
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:55:31
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:55:31
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 201
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:55:31
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:59:44
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 289
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:59:44
+=============Error Logging ===========
+===========Start============= 15/09/2020 11:59:44
+Error Message: Input string was not in a correct format.
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at Project_Final.Functions.GetPoints(String lx1, String ly1, String lx2, String ly2, Int32 recordID, String tablename)
+Problem Table: NewsEng
+Problem row: 289
+Problem value: location x1,y1,x2,y2
+===========End============= 15/09/2020 11:59:44

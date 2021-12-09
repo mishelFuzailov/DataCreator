@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9da024f930d9413488df713e7e56ddd6" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="ProjectModel.Area" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Author" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.AuthorsPublication" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Excavation" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.ExcavationsPublication" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Finding" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.FindingsPeriod" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.FindingType" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Language" Width="1.5" PointX="1.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.LocationAPIResult" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Period" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Periodical" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Publication" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.PublicationType" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.RecordSource" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Researcher" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.ResearchersExcavation" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SiteNature" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Site" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SitesName" Width="1.5" PointX="3.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SitesPeriod" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SitesSiteName" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SiteType" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.SourceDBConnection" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.TableCode" Width="1.5" PointX="8.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.temp_names" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ProjectModel.FK_Excavations_Areas" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_AuthorsPublications_Authors" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_AuthorsPublications_Publications" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Excavations_Sites" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_ExcavationsPublications_Excavations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Findings_Excavations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_ResearchersExcavations_Excavations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_ExcavationsPublications_Publications" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Findings_FindingSiteNature" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Findings_FindingSiteType" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Findings_FindingType" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_FindingsPeriods_Findings" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_FindingsPeriods_Period" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SitesName_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_LocationAPIResult_Sites" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SitesPeriods_Period" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Publications_Periodicals" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Publications_PublicationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SourceDBConnection_RecordSource1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_ResearchesExcavations_Researchers" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SitesPeriods_Sites" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SitesSiteNames_Sites" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SitesSiteNames_SitesName" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_SourceDBConnection_TableCode" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
