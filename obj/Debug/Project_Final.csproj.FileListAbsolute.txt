@@ -1,0 +1,34 @@
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\Project_Final.exe.config
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\Project_Final.exe
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\Project_Final.pdb
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EntityFramework.dll
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EntityFramework.xml
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\obj\Debug\Project_Final.csprojAssemblyReference.cache
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\obj\Debug\Project_Final.csproj.CoreCompileInputs.cache
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\obj\Debug\Project_Final.csproj.CopyComplete
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\obj\Debug\Project_Final.exe
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\obj\Debug\Project_Final.pdb
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\Microsoft.Spatial.dll
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\Microsoft.Spatial.xml
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EllisWeb.Gematria.dll
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EllisWeb.Gematria.pdb
+C:\Users\mfuzailo\Desktop\stud\project\Bar-Ilan project\Project_Final\bin\Debug\EllisWeb.Gematria.xml
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\Project_Final.exe.config
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\Project_Final.exe
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\Project_Final.pdb
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EllisWeb.Gematria.dll
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EntityFramework.dll
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\Microsoft.Spatial.dll
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EllisWeb.Gematria.pdb
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EllisWeb.Gematria.xml
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EntityFramework.xml
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\bin\Debug\Microsoft.Spatial.xml
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\obj\Debug\Project_Final.csprojAssemblyReference.cache
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\obj\Debug\Project_Final.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\obj\Debug\Project_Final.csproj.CopyComplete
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\obj\Debug\Project_Final.exe
+C:\Users\user\Documents\Pnina\StudentProjects\JKCDataCreator\obj\Debug\Project_Final.pdb

@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EllisWeb.Gematria</name>
+    </assembly>
+    <members>
+        <member name="T:EllisWeb.Gematria.Calculator">
+            <summary>
+            The Gematria Calculator. Base for main functionality
+            </summary>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.GetGematriaValue(System.String,EllisWeb.Gematria.GematriaType)">
+            <summary>
+            Calculates the gematria value for all Hebrew letters in the given string.
+            Ignores all characters that are not Hebrew letters.
+            </summary>
+            <param name="sourceString">String to evaluate</param>
+            <param name="gematriaType"><see cref="T:EllisWeb.Gematria.GematriaType"/> to use for calculation (defaults to Absolute)</param>
+            <returns></returns>
+        </member>
+        <member name="P:EllisWeb.Gematria.Calculator.ForceNumericStrictMode">
+            <summary>
+            Should strict mode always be used when calculating numeric values (defaults to false). When set to true, 
+            </summary>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.GetNumericGematriaValue(System.String,EllisWeb.Gematria.GematriaType,System.Nullable{System.Boolean})">
+            <summary>
+            Calculates the gematria value for a string that is intended to represent a number (example: a year in the Hebrew calendar or page in a Hebrew book).
+            This function expects that the given string will contain only one word, and will throw an error if more than one word is included 
+            (this is because a string of Hebrew characters representing a number will never consist of multiple words).
+            Ignores non-Hebrew characters and punctuation in the given word. 
+            </summary>
+            <param name="sourceString">The string to evaluate</param>
+            <param name="gematriaType"><see cref="T:EllisWeb.Gematria.GematriaType"/> to use for calculation (defaults to Absolute)</param>
+            <param name="isStrictMode">
+            Should the numeric gematria be evaluated with Strict Mode turned on. Defaults to the global setting 
+            defined in <see cref="P:EllisWeb.Gematria.Calculator.ForceNumericStrictMode"/>. When true this will throw a <see cref="T:System.FormatException"/> whenever the numbers at 
+            the end of the string that are under 100 (ק) are not included in descending numeric order, and do not appear on the exceptions list.
+            </param>
+            <returns>Number equal to the numeric gematria value of the string provided</returns>
+            <remarks>
+            This function will infer the division between thousands-groupings of the number by using the following rule:
+            Evaluate characters one at a time. It is expected that gematria values within a thousands-grouping will always be the same or equal to the previous value.
+            If a value is encountered that is greater than the previous value, it signifies the start of a new thousands-grouping.
+            </remarks>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.ConvertToGematriaNumericString(System.Int64,System.Boolean,System.Char,System.Char)">
+            <summary>
+            Convert a number into its Gematria Numeric representation
+            this method is only a wrapper for the other overload which utilizes <see cref="T:EllisWeb.Gematria.GematriaOptions"/> class.
+            </summary>
+            <param name="number">The non-negative number to evaluate</param>
+            <param name="includeSeparators">Should separators between thousands-groupings be included in the string that is returned</param>
+            <param name="thousandsSeparator">Value to use separating between thousands-groupings. Defaults to a single quote (')</param>
+            <param name="tensSeparator">Value to use separating between the tens and single digit letters. Defaults to a double quote (")</param>
+            <example>
+            8 ==> ח
+            15 ==> ט"ו
+            245 ==> רמ"ה
+            5,767 ==> ה'תשס"ז
+            1,024,999 ==> א'כד'תתרצ"ט
+            </example>
+            <remarks>
+            Will evaluate each thousands-grouping separately, inserting separators if needed.
+            A value of 15 will always be represented as ט"ו and 16 will be represented as ט"ז, following Jewish custom. 
+            </remarks>
+            <returns>Gemtria Numeric representation of given number</returns>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.ConvertToGematriaNumericString(System.Int64,EllisWeb.Gematria.GematriaOptions)">
+            <summary>
+            Convert a number into its Gematria Numeric representation
+            </summary>
+            <param name="number">The non-negative number to evaluate</param>
+            <param name="options">Gematria conversion options</param>
+            <example>
+            8 ==> ח
+            15 ==> ט"ו
+            245 ==> רמ"ה
+            5,767 ==> ה'תשס"ז
+            1,024,999 ==> א'כד'תתרצ"ט
+            </example>
+            <remarks>
+            Will evaluate each thousands-grouping separately, inserting separators if needed.
+            A value of 15 will always be represented as ט"ו and 16 will be represented as ט"ז, following Jewish custom. 
+            </remarks>
+            <returns>Gemtria Numeric representation of given number</returns>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.GetNumericString(System.Int32)">
+            <summary>
+            Gives the string representation of a number up between 1 and 999
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EllisWeb.Gematria.Calculator.StripSeparatorCharacters(System.String,System.Boolean)">
+            <summary>
+            Strip separator characters (single and double-quotes, appostrophes) from a string
+            </summary>
+            <param name="str"></param>
+            <param name="stripSpaces"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EllisWeb.Gematria.GematriaOptions">
+            <summary>
+            Options when converting a number into its Gematria representation
+            </summary>
+        </member>
+        <member name="P:EllisWeb.Gematria.GematriaOptions.IncludeSeparators">
+            <summary>
+            Should separators between thousands-groupings be included in the string that is returned
+            </summary>
+        </member>
+        <member name="P:EllisWeb.Gematria.GematriaOptions.ThousandsSeparator">
+            <summary>
+            Value to use separating between thousands-groupings. Defaults to a single quote (')
+            </summary>
+        </member>
+        <member name="P:EllisWeb.Gematria.GematriaOptions.TensSeparator">
+            <summary>
+            Value to use separating between the tens and single digit letters. Defaults to a double quote (")
+            </summary>
+        </member>
+        <member name="P:EllisWeb.Gematria.GematriaOptions.AddQuoteAfterSingleChar">
+            <summary>
+            <para>When the result is a single char, Should we place a single quote (true) or a double-quote (false)</para>
+            <para>The default is true - adding a single quote</para>
+            </summary>
+        </member>
+        <member name="T:EllisWeb.Gematria.GematriaType">
+            <summary>
+            Enumeration of different Gematria types
+            </summary>
+        </member>
+        <member name="F:EllisWeb.Gematria.GematriaType.Absolute">
+            <summary>
+            Absolute Method (מספר הכרחי).  Uses full numerical value of the twenty-two letters. Default method.
+            </summary>
+        </member>
+        <member name="F:EllisWeb.Gematria.GematriaType.AbsoluteAlternate">
+            <summary>
+            Absolute Alternate (מספר גדול). Same as absolute, with the final forms (sofiyot) continuing the numeric sequence.
+            </summary>
+        </member>
+        <member name="F:EllisWeb.Gematria.GematriaType.AbsoluteNoSofiyot">
+            <summary>
+            Absolute Method, without any of the five sofiyot letters
+            </summary>
+        </member>
+        <member name="F:EllisWeb.Gematria.GematriaType.Reduced">
+            <summary>
+            Reduced Value (Mispar Katan - מספר קטן). Takes the first digit from the number for each character as defined in the Absolute method.
+            </summary>
+        </member>
+        <member name="F:EllisWeb.Gematria.GematriaType.Ordinal">
+            <summary>
+            Ordinal Value (Mispar Siduri - מספר סידורי): each letter its order number in the alphabet. א=1, ב=2, כ=11, ת=22, ץ=27
+            </summary>
+        </member>
+        <member name="T:EllisWeb.Gematria.LookupFactory">
+            <summary>
+            Helper class for looking up the numeric values of specific Hebrew letters based on different counting systems
+            </summary>
+        </member>
+        <member name="M:EllisWeb.Gematria.LookupFactory.GetDictionary(EllisWeb.Gematria.GematriaType)">
+            <summary>
+            Retrieve a letter lookup dictionary for a given calculation method
+            </summary>
+            <param name="type">The <see cref="T:EllisWeb.Gematria.GematriaType"/> for which to retrieve the lookup dictionary</param>
+            <returns>Lookup dictionary giving the numeric value for each Hebew character</returns>
+        </member>
+    </members>
+</doc>

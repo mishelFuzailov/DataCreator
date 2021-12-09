@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectDB">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="ProjectModel.Area">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="areaHeb" ColumnName="areaHeb" />
+          <ScalarProperty Name="areaEng" ColumnName="areaEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="ProjectModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="authorID" ColumnName="authorID" />
+          <ScalarProperty Name="nameHeb" ColumnName="nameHeb" />
+          <ScalarProperty Name="nameEng" ColumnName="nameEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorsPublications">
+      <EntityTypeMapping TypeName="ProjectModel.AuthorsPublication">
+        <MappingFragment StoreEntitySet="AuthorsPublications">
+          <ScalarProperty Name="authorPublicationID" ColumnName="authorPublicationID" />
+          <ScalarProperty Name="authorID" ColumnName="authorID" />
+          <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Excavations">
+      <EntityTypeMapping TypeName="ProjectModel.Excavation">
+        <MappingFragment StoreEntitySet="Excavations">
+          <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="excavationDate" ColumnName="excavationDate" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="excavationSize" ColumnName="excavationSize" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+          <ScalarProperty Name="excavationHeb" ColumnName="excavationHeb" />
+          <ScalarProperty Name="excavationEng" ColumnName="excavationEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExcavationsPublications">
+      <EntityTypeMapping TypeName="ProjectModel.ExcavationsPublication">
+        <MappingFragment StoreEntitySet="ExcavationsPublications">
+          <ScalarProperty Name="excavationPublicationID" ColumnName="excavationPublicationID" />
+          <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+          <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Findings">
+      <EntityTypeMapping TypeName="ProjectModel.Finding">
+        <MappingFragment StoreEntitySet="Findings">
+          <ScalarProperty Name="findingID" ColumnName="findingID" />
+          <ScalarProperty Name="descriptionEng" ColumnName="descriptionEng" />
+          <ScalarProperty Name="descriptionHeb" ColumnName="descriptionHeb" />
+          <ScalarProperty Name="findingTypeID" ColumnName="findingTypeID" />
+          <ScalarProperty Name="siteTypeID" ColumnName="siteTypeID" />
+          <ScalarProperty Name="siteNatureID" ColumnName="siteNatureID" />
+          <ScalarProperty Name="findingDate" ColumnName="findingDate" />
+          <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FindingsPeriods">
+      <EntityTypeMapping TypeName="ProjectModel.FindingsPeriod">
+        <MappingFragment StoreEntitySet="FindingsPeriods">
+          <ScalarProperty Name="findingPeriodID" ColumnName="findingPeriodID" />
+          <ScalarProperty Name="findingID" ColumnName="findingID" />
+          <ScalarProperty Name="periodID" ColumnName="periodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FindingTypes">
+      <EntityTypeMapping TypeName="ProjectModel.FindingType">
+        <MappingFragment StoreEntitySet="FindingType">
+          <ScalarProperty Name="findingTypeID" ColumnName="findingTypeID" />
+          <ScalarProperty Name="findingTypeDescriptionHeb" ColumnName="findingTypeDescriptionHeb" />
+          <ScalarProperty Name="findingTypeDescriptionEng" ColumnName="findingTypeDescriptionEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="ProjectModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="languageID" ColumnName="languageID" />
+          <ScalarProperty Name="languageHeb" ColumnName="languageHeb" />
+          <ScalarProperty Name="languageEng" ColumnName="languageEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationAPIResults">
+      <EntityTypeMapping TypeName="ProjectModel.LocationAPIResult">
+        <MappingFragment StoreEntitySet="LocationAPIResult">
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="coordinateSource" ColumnName="coordinateSource" />
+          <ScalarProperty Name="locationiqLon" ColumnName="locationiqLon" />
+          <ScalarProperty Name="locationiqLat" ColumnName="locationiqLat" />
+          <ScalarProperty Name="googleLat" ColumnName="googleLat" />
+          <ScalarProperty Name="googleLon" ColumnName="googleLon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periods">
+      <EntityTypeMapping TypeName="ProjectModel.Period">
+        <MappingFragment StoreEntitySet="Period">
+          <ScalarProperty Name="periodID" ColumnName="periodID" />
+          <ScalarProperty Name="nameHeb" ColumnName="nameHeb" />
+          <ScalarProperty Name="nameEng" ColumnName="nameEng" />
+          <ScalarProperty Name="fromYear" ColumnName="fromYear" />
+          <ScalarProperty Name="upToYear" ColumnName="upToYear" />
+          <ScalarProperty Name="periodType" ColumnName="periodType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodicals">
+      <EntityTypeMapping TypeName="ProjectModel.Periodical">
+        <MappingFragment StoreEntitySet="Periodicals">
+          <ScalarProperty Name="periodicalID" ColumnName="periodicalID" />
+          <ScalarProperty Name="periodicalNameHeb" ColumnName="periodicalNameHeb" />
+          <ScalarProperty Name="periodicalNameEng" ColumnName="periodicalNameEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publications">
+      <EntityTypeMapping TypeName="ProjectModel.Publication">
+        <MappingFragment StoreEntitySet="Publications">
+          <ScalarProperty Name="publicationID" ColumnName="publicationID" />
+          <ScalarProperty Name="articleTitle" ColumnName="articleTitle" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="periodicalID" ColumnName="periodicalID" />
+          <ScalarProperty Name="bibliography" ColumnName="bibliography" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="FDFName" ColumnName="FDFName" />
+          <ScalarProperty Name="publicationTypeID" ColumnName="publicationTypeID" />
+          <ScalarProperty Name="abstractEng" ColumnName="abstractEng" />
+          <ScalarProperty Name="abstractHeb" ColumnName="abstractHeb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicationTypes">
+      <EntityTypeMapping TypeName="ProjectModel.PublicationType">
+        <MappingFragment StoreEntitySet="PublicationType">
+          <ScalarProperty Name="publicationTypeID" ColumnName="publicationTypeID" />
+          <ScalarProperty Name="publicationTypeHeb" ColumnName="publicationTypeHeb" />
+          <ScalarProperty Name="publicationTypeEng" ColumnName="publicationTypeEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecordSources">
+      <EntityTypeMapping TypeName="ProjectModel.RecordSource">
+        <MappingFragment StoreEntitySet="RecordSource">
+          <ScalarProperty Name="recordID" ColumnName="recordID" />
+          <ScalarProperty Name="sourceID" ColumnName="sourceID" />
+          <ScalarProperty Name="recordSourceTable" ColumnName="recordSourceTable" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="datails" ColumnName="datails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Researchers">
+      <EntityTypeMapping TypeName="ProjectModel.Researcher">
+        <MappingFragment StoreEntitySet="Researchers">
+          <ScalarProperty Name="researcherID" ColumnName="researcherID" />
+          <ScalarProperty Name="researcherNameHeb" ColumnName="researcherNameHeb" />
+          <ScalarProperty Name="researcherNameEng" ColumnName="researcherNameEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchersExcavations">
+      <EntityTypeMapping TypeName="ProjectModel.ResearchersExcavation">
+        <MappingFragment StoreEntitySet="ResearchersExcavations">
+          <ScalarProperty Name="researcherExcavationID" ColumnName="researcherExcavationID" />
+          <ScalarProperty Name="researcherID" ColumnName="researcherID" />
+          <ScalarProperty Name="excavationID" ColumnName="excavationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteNatures">
+      <EntityTypeMapping TypeName="ProjectModel.SiteNature">
+        <MappingFragment StoreEntitySet="SiteNature">
+          <ScalarProperty Name="findingSiteNatureID" ColumnName="findingSiteNatureID" />
+          <ScalarProperty Name="findingSiteNatureHeb" ColumnName="findingSiteNatureHeb" />
+          <ScalarProperty Name="findingSiteNatureEng" ColumnName="findingSiteNatureEng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="ProjectModel.Site">
+        <MappingFragment StoreEntitySet="Sites">
+          <ScalarProperty Name="oldSiteID" ColumnName="oldSiteID" />
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="LabelX" ColumnName="LabelX" />
+          <ScalarProperty Name="LabelY" ColumnName="LabelY" />
+          <ScalarProperty Name="NIG_Info" ColumnName="NIG_Info" />
+          <ScalarProperty Name="WGS84_Info" ColumnName="WGS84_Info" />
+          <ScalarProperty Name="siteSize" ColumnName="siteSize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SitesNames">
+      <EntityTypeMapping TypeName="ProjectModel.SitesName">
+        <MappingFragment StoreEntitySet="SitesName">
+          <ScalarProperty Name="siteNameID" ColumnName="siteNameID" />
+          <ScalarProperty Name="txtName" ColumnName="txtName" />
+          <ScalarProperty Name="languageID" ColumnName="languageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SitesPeriods">
+      <EntityTypeMapping TypeName="ProjectModel.SitesPeriod">
+        <MappingFragment StoreEntitySet="SitesPeriods">
+          <ScalarProperty Name="sitesPeriodsID" ColumnName="sitesPeriodsID" />
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="periodID" ColumnName="periodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SitesSiteNames">
+      <EntityTypeMapping TypeName="ProjectModel.SitesSiteName">
+        <MappingFragment StoreEntitySet="SitesSiteNames">
+          <ScalarProperty Name="sitesSiteNamesID" ColumnName="sitesSiteNamesID" />
+          <ScalarProperty Name="siteID" ColumnName="siteID" />
+          <ScalarProperty Name="siteNameID" ColumnName="siteNameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteTypes">
+      <EntityTypeMapping TypeName="ProjectModel.SiteType">
+        <MappingFragment StoreEntitySet="SiteType">
+          <ScalarProperty Name="findingSiteTypeID" ColumnName="findingSiteTypeID" />
+          <ScalarProperty Name="findingSiteTypeEng" ColumnName="findingSiteTypeEng" />
+          <ScalarProperty Name="findingSiteTypeHeb" ColumnName="findingSiteTypeHeb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SourceDBConnections">
+      <EntityTypeMapping TypeName="ProjectModel.SourceDBConnection">
+        <MappingFragment StoreEntitySet="SourceDBConnection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="sourceID" ColumnName="sourceID" />
+          <ScalarProperty Name="dbID" ColumnName="dbID" />
+          <ScalarProperty Name="tableID" ColumnName="tableID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableCodes">
+      <EntityTypeMapping TypeName="ProjectModel.TableCode">
+        <MappingFragment StoreEntitySet="TableCode">
+          <ScalarProperty Name="tableID" ColumnName="tableID" />
+          <ScalarProperty Name="tableName" ColumnName="tableName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="temp_names">
+      <EntityTypeMapping TypeName="ProjectModel.temp_names">
+        <MappingFragment StoreEntitySet="temp_names">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="FAM" ColumnName="FAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ProjectModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ProjectModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ProjectModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ProjectModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProjectModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ProjectModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProjectModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ProjectModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ProjectModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
